@@ -1,3 +1,6 @@
 import math
 import cv2
-im
+import os
+
+# Calculate a new corner based on the original coordinates and rotation angle.
+def get_box_image()
