@@ -1,10 +1,7 @@
 import numpy as np
 
 def nms(boxes,thresh):
-  
-  """
-  """
-  
+    
     if len(boxes) == 0:
         return []
 
@@ -42,3 +39,5 @@ def nms(boxes,thresh):
             overlap = (w*h)/(aera[i] + aera[1:] - (w*h))
         inds = np.where(overlap <= thresh)[0]
         index = index[inds + 1]
+
+    return index
