@@ -19,5 +19,24 @@ class BiLSTM(nn.Module):
         return out
         
         
+calss CTPN(nn.Module):
+    
+    def __init__(self, pretrained, pretrained_model_path):
+        super(CTPN, self).__init__()
+        if pretrained:
+            if os.exist(pretrained_model_path):
+                base_model = torchvision.models.vgg16(pretrained=False)
+                base_model.load_state_dict(torch.load(pretrained_model_path))
+            else:
+                base_model = torchvision.models.vgg16(pretrained=True)
+        else:
+            base_model = torchvision.models.vgg16()
+            
+        layers = list(base_model.features)[: -1]
+        self.base_layers = nn.Sequential(*layers) # block5_conv3 output
+        
+        
+        
+        
         
         
