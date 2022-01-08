@@ -19,7 +19,7 @@ class BiLSTM(nn.Module):
         return out
         
         
-calss CTPN(nn.Module):
+class CTPN(nn.Module):
     
     def __init__(self, pretrained, pretrained_model_path):
         super(CTPN, self).__init__()
